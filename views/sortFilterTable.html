@@ -1,3 +1,10 @@
+<div class="page-header">
+    <h1>表格排序、筛选与URL参数</h1>
+    <p>表格的排序和筛选参照了教程
+        <a href="https://scotch.io/tutorials/sort-and-filter-a-table-using-angular">Sort and Filter a Table Using Angular</a></p>
+    <p>点击Sushi的名字的链接，可以把Sushi名和原材料作为URL参数。参数教程：
+        <a href="https://scotch.io/tutorials/3-simple-tips-for-using-ui-router">3 Simple Tips for Using UI-Router</a></p>
+</div>
 <div class="alert alert-info">
     <p>Sort Type: {{ sortType }}</p>
     <p>Sort Reverse: {{ sortReverse }}</p>
@@ -34,7 +41,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
-        <td>{{ roll.name }}</td>
+        <td><a ui-sref="sushiDetail({ sushiName: roll.name, sushiIngredients: roll.fish})">{{ roll.name }}</a></td>
         <td>{{ roll.fish }}</td>
         <td>{{ roll.tastiness }}</td>
     </tr>

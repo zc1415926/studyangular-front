@@ -15,3 +15,9 @@ angular.module('studyangularApp')
             { name: 'Rainbow', fish: 'Variety', tastiness: 6 }
         ];
     })
+    .controller('sushiDetailCtrler', function($scope, $stateParams){
+        $scope.sushiName = $stateParams.sushiName;
+        $scope.sushiIngredients = $stateParams.sushiIngredients;
+
+        console.log($stateParams);
+    });
