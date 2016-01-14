@@ -2,6 +2,7 @@
  * Created by ZC on 2016/1/12.
  */
 angular.module('studyangularApp')
+    .constant('backgroundBaseUrl', 'https://study-angular-backend-zc1415926.c9users.io')
     .controller('sortFilterTableCtrler', function($scope){
         $scope.sortType     = 'name'; // set the default sort type
         $scope.sortReverse  = false;  // set the default sort order
@@ -20,4 +21,30 @@ angular.module('studyangularApp')
         $scope.sushiIngredients = $stateParams.sushiIngredients;
 
         console.log($stateParams);
+    })
+    .controller('submitFormCtrler', function($scope, $http, backgroundBaseUrl){
+        $scope.formData = {};
+        $scope.processForm = function(){
+            $http.post(
+                backgroundBaseUrl + '/returnformdata',
+                $scope.formData
+            ).success(function(data){
+                console.log(data);
+            });
+        }
+    })
+    .controller('formValidationCtrler', function($scope, $http, backgroundBaseUrl){
+        $scope.submitForm = function(isValid){
+
+            $scope.submitted = true;
+            if(isValid){
+                console.log($scope.userForm);
+                $http.post(
+                    backgroundBaseUrl + '/returnformdata',
+                    $scope.userForm
+                ).success(function(data){
+                    console.log(data);
+                });
+            }
+        }
     });

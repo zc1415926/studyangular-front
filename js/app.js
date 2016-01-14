@@ -26,6 +26,16 @@
                     template: '<h1>The <span class="bigger-h1">{{ sushiName }}</span>' +
                     ' sushi is made with <span class="bigger-h1">{{ sushiIngredients }}</span>.</h1>',
                     controller: 'sushiDetailCtrler'
+                })
+                .state('submitForm', {
+                    url: '/submitForm',
+                    templateUrl: 'views/submitForm.html',
+                    controller: 'submitFormCtrler'
+                })
+                .state('formValidation', {
+                    url: '/formValidation',
+                    templateUrl: 'views/formValidation.html',
+                    controller: 'formValidationCtrler'
                 });
         });
 })();

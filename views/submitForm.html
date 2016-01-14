@@ -1,0 +1,46 @@
+<div class="page-header">
+    <h1>表单提交</h1>
+    <p>参照了教程
+        <a href="https://scotch.io/tutorials/submitting-ajax-forms-the-angularjs-way">Submitting AJAX Forms: The AngularJS Way</a></p>
+</div>
+
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+
+        <!-- PAGE TITLE -->
+        <div class="page-header">
+            <h1><span class="glyphicon glyphicon-tower"></span> Submitting Forms with Angular</h1>
+        </div>
+
+        <!-- SHOW ERROR/SUCCESS MESSAGES -->
+        <div id="messages"></div>
+
+        <!-- FORM -->
+        <form ng-submit="processForm()">
+            <!-- NAME -->
+            <div id="name-group" class="form-group">
+                <label>Name</label>
+                <input ng-model="formData.name" type="text" name="name" class="form-control" placeholder="Bruce Wayne">
+                <span class="help-block"></span>
+                <span class="help-block" ng-show="errorName">{{ errorName }}</span>
+            </div>
+
+            <!-- SUPERHERO NAME -->
+            <div id="superhero-group" class="form-group">
+                <label>Superhero Alias</label>
+                <input ng-model="formData.superheroAlias" type="text" name="superheroAlias" class="form-control" placeholder="Caped Crusader">
+                <span class="help-block" ng-show="errorSuperhero">{{ errorSuperhero }}</span>
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="btn btn-success btn-lg btn-block">
+                <span class="glyphicon glyphicon-flash"></span> Submit!
+            </button>
+        </form>
+        <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+        <br>
+        <pre>
+            {{ formData }}
+        </pre>
+    </div>
+</div>
